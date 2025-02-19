@@ -36,9 +36,9 @@ class TestAssignmentNotebook(unittest.TestCase):
         """Test if DataFrame contains required columns"""
         df = self.global_env.get("df", None)
         df.head()
-        required_columns = {"Name", "Age", "Salary"}
+        required_columns = {"Name", "Age", "Score"}
         self.assertIsNotNone(df, "df not found in notebook")
-        self.assertTrue(required_columns.issubset(df.columns), "Missing required columns in df")
+        self.assertTrue(required_columns.issubset(set(df.columns)), "Missing required columns in df")
 
 if __name__ == "__main__":
     unittest.main(argv=[''], exit=False)
